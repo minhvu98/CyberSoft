@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorator="/layout/default">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<section id="admin-content" class="p-3" layout:fragment="noidung">
+			<section class="mt-5">
+			<section class="course-banner">
+				<div class="container">
+					<div class="banner-content">
+						<h1></h1>
+						<h5>tienhoang1211@gmail.com</h5>
+					</div>
+				</div>
+	</section>
+ 	<section class="mt-5">
+        <div class="container" >
+            <div class="row">
+                <div th:each="item : ${course}" class="col-md-3">
+                    <a href="#" class="my-course-item">
+                        <img th:src="@{'/img/'+${item.image}}" alt="">
+                        <h6 class="my-course-title" th:text="${item.title}">React - The Complete Guide (incl Hooks, React Router, Redux) </h6>
+                        <div class="my-course-desc" th:text="${item.description}">
+                            Java Python Android and C# Expert Developer - 467K+ students The Complete Guide (incl Hooks,
+                            React Router, Redux)
+                        </div>
+                        <div class="my-course-author">
+                            <h6>
+                                <small>Lê Quang Song</small>
+                                <small>Start course</small>
+                            </h6>
+                        </div>
+                    </a>
+                </div>
+           </div>
+        </div>
+    </section>
+    </section>
+    </section>
+</body>
+</html>

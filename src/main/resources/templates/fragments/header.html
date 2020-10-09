@@ -1,0 +1,42 @@
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <a class="navbar-brand" th:href="home">Elearning</a>
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+                data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                aria-label="Toggle navigation"></button>
+            <div class="collapse navbar-collapse row" id="collapsibleNavId">
+                <div class="col-md-6">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0 d-flex align-items-center justify-content-between">
+                        <li class="nav-item mr-3">
+                            <div class="dropdown">
+                                <a class="btn btn-outline-light dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-th"></i>
+                                    <span class="ml-2">Categories</span>
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a th:each="item: ${categories}" class="dropdown-item" href="#">
+                                        <i th:class="${item.icon}"></i>
+                                        <span th:text="${item.title}">Development</span>
+                                    </a>
+                                    
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item w-100">
+                            <form class="input-group nav-search">
+                                <input type="text" class="form-control" placeholder="Search courses">
+                                <div class="input-group-append">
+                                    <button class="btn bg-white text-danger"><i class="fa fa-search"></i></button>
+                                </div>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-1 nav-cart">
+                    <i class="fa fa-shopping-basket"></i>
+                </div>
+                <div class="col-md-5 text-right">
+                    <button class="btn btn-outline-secondary">Login</button>
+                    <button class="btn btn-danger ml-2">Sign up</button>
+                </div>
+            </div>
+        </nav>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="/managerlayout/layout2/default">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<section id="admin-content" class="p-3" layout:fragment="noidung">
+		<div class="main-body">
+			<div class="page-body">
+				<div class="row">
+					<div class="col-md-12 mb-2">
+						<div class="page-header-breadcrumb">
+							<ul class="breadcrumb-title">
+								<li class="breadcrumb-item"><a th:href="@{/home}"> <i
+										class="feather icon-home"></i> Trang chủ
+								</a></li>
+								<li class="breadcrumb-item"><a th:href="@{/course/add}">Thêm
+										mới khóa học</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-12">
+						<div class="card">
+							<div class="card-header">
+								<h2 class="text-uppercase text-center">Thêm mới khóa học</h2>
+							</div>
+							<div class="card-block">
+								<form th:action="@{/course/add}" th:object="${course}" method="post"
+									action="">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label>Tiêu đề</label> <input type="text" th:field="*{title}"
+													class="form-control" />
+											</div>
+											<div class="form-group">
+												<label>Số bài học</label> <input type="number"
+													th:field="*{letures_count}" class="form-control" />
+											</div>
+											<div class="form-group">
+												<label>Số giờ học</label> <input type="number"
+													th:field="*{hour_count}" class="form-control" />
+											</div>
+											<div class="form-group">
+												<label>Danh mục</label> <select th:field="*{category_id}"
+													class="form-control">
+													<option th:each="item : ${courses}" th:value="${item.id}" th:text="${item.title}">Frontend</option>
+												</select>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label>Giá bán</label> <input type="text" th:field="*{price}"
+													class="form-control" />
+											</div>
+											<div class="form-group">
+												<label>Giảm giá (%)</label> <input type="number"
+													th:field="*{discount}" class="form-control" />
+											</div>
+											<div class="form-group">
+												<label>Mô tả</label> <input type="text" th:field="*{description}"
+													class="form-control" />
+											</div>
+											<div class="form-group">
+												<label>Hình đại diện</label> <input type="file" th:field="*{image}"
+													class="form-control" />
+											</div>
+										</div>
+										<div class="col-12">
+											<label>Nội dung</label>
+											<textarea th:field="*{content}" class="form-control" rows="5"></textarea>
+										</div>
+										<div class="col-12 mt-3">
+											<div class="form-group">
+												<button type="submit" class="btn btn-primary m-b-0">Lưu
+													lại</button>
+												<a th:href="@{/course}"
+													class="btn btn-secondary text-white">Quay lại</a>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
